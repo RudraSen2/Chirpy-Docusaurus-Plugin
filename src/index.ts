@@ -28,7 +28,7 @@ export default function myPlugin(
 ): Plugin<MyPluginLoadableContent, MyPluginOptions> {
   return {
     // change this to something unique, or caches may conflict!
-    name: "docusaurus-plugin-example",
+    name: "docusaurus-plugin-chirpy",
 
     /*
      * THIS IS COMMENTED OUT BECAUSE IT IS HARD TO UNDERSTAND FOR BEGINNERS.
@@ -90,13 +90,15 @@ export default function myPlugin(
       cli
         .command("dothing")
         .description("Does something")
-        .action(() => {})
+        .action(() => { })
     },
 
     injectHtmlTags() {
       // Inject head and/or body HTML tags.
       return {
-        // extra html tags here
+        headTags: [
+          '<script defer src="http://chirpy.dev/bootstrap/comment.js" data-chirpy-domain="chirpy.dev"></script>',
+        ],
       }
     },
   }
